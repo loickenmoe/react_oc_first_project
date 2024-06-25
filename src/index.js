@@ -11,6 +11,7 @@ import Error from './components/Error'
 import Results from './pages/Results/results'
 import Freelances from './pages/Freelances/freelances'
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>

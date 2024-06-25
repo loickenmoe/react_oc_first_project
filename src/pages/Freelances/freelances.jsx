@@ -1,9 +1,21 @@
+import { freelanceProfiles } from ".";
+import Card from "../../components/Card";
 
 
 function Freelances(){
 
     return (
-        <h1>Bienvenue dans la page des Freelances 👩‍💻👨‍💻👩‍💻</h1>
+        <div>
+              <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
+            {freelanceProfiles.map((profile, index) => (
+                <Card 
+                    key={`${profile.name}-${index}`}
+                    label={profile.jobTitle}
+                    picture={profile.picture}
+                    title={42}
+                />
+            ))} 
+        </div>
     );
 }
 
