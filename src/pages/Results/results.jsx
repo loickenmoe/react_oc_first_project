@@ -3,8 +3,8 @@
 function Results() {
 
     return (
-        <div className="resultats">
-            <h1>Voiçi les resultats youpiiiiiiiiii</h1>
+        <div>
+             <h1>Résultats</h1>
         </div>
     );
 }
