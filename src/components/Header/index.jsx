@@ -21,6 +21,12 @@ const StyleLink = styled(Link)`
     color: #8186a0;
     text-decoration: none;
     font-size: 18px;
+    &:focus{
+      color: white; 
+      border-radius: 30px; 
+      background-color: ${colors.primary};
+    
+    }
       ${(props) =>
         props.$isFullLink &&
         `color: white; border-radius: 30px; background-color: ${colors.primary};`}

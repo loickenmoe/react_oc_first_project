@@ -1,0 +1,6 @@
+[submodule "7150606-API-React-intermediaire_add"]
+	path = 7150606-API-React-intermediaire_add
+	url = git@github.com:OpenClassrooms-Student-Center/7150606-React-intermediaire.git
+[submodule "7150606-React-intermediaire"]
+	path = 7150606-React-intermediaire
+	url = git@github.com:OpenClassrooms-Student-Center/7150606-React-intermediaire.git
