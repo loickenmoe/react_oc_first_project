@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from 'react'
 import Card from '../../components/Card'
 import styled from 'styled-components'

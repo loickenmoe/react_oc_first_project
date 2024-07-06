@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { Loader } from '../../utils/style/atom'
-import { SurveyContext} from '../../utils/context'
+import { SurveyContext } from '../../utils/context'
+// importation de notre propre hook
+import { useFetch } from '../../utils/hooks/index'
 
 const SurveyContainer = styled.div`
   display: flex;
@@ -61,34 +63,19 @@ function Survey() {
   const questionNumberInt = parseInt(questionNumber)
   const prevQuestionNumber = questionNumberInt === 1 ? 1 : questionNumberInt - 1
   const nextQuestionNumber = questionNumberInt + 1
-  const [surveyData, setSurveyData] = useState({})
   const [isDataLoading, setDataLoading] = useState(false)
   const { saveAnswers, answers } = useContext(SurveyContext) //sauvegarde des resultats
-  const [error, setError] = useState(false)
 
-function saveReply(answer) {
-  saveAnswers({ [questionNumber]: answer })
-}
+  // recuperation de notre data
+  const { data, isLoading, error } = useFetch(`http://localhost:8000/survey`)
+  const { surveyData } = data
 
-  useEffect(() => {
-    async function fetchSurvey() {
-      setDataLoading(true)
-      try {
-        const response = await fetch(`http://localhost:8000/survey`)
-        const { surveyData } = await response.json()
-        setSurveyData(surveyData)
-      } catch (err) {
-        console.log(err)
-        setError(true)
-      } finally {
-        setDataLoading(false)
-      }
-    }
-    fetchSurvey()
-  }, [])
-
+  function saveReply(answer) {
+    saveAnswers({ [questionNumber]: answer })
+  }
+  if (isLoading) return
   if (error) {
-    return <span>Oups il y a eu un problème</span>
+    return <span> il y a eu un problème</span>
   }
 
   return (
