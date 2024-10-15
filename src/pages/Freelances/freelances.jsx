@@ -14,7 +14,7 @@ const CardsContainer = styled.div`
 `
 
 const PageTitle = styled.h1`
-  font-size: 30px;
+  font-size: 31px;
   color: black;
   text-align: center;
   padding-bottom: 30px;
