@@ -52,7 +52,25 @@ const LoaderWrapper = styled.div`
   justify-content: center;
 `
 
-function formatFetchParams(answers) {
+// function formatFetchParams(answers) {
+//   const answerNumbers = Object.keys(answers)
+
+//   return answerNumbers.reduce((previousParams, answerNumber, index) => {
+//     const isFirstParam = index === 0
+//     const separator = isFirstParam ? '' : '&'
+//     return `${previousParams}${separator}a${answerNumber}=${answers[answerNumber]}`
+//   }, '')
+// }
+
+// tester notre code de manière indépendante
+export function formatJobList(title, listLength, index) {
+  if (index === listLength - 1) {
+      return title
+  }
+  return `${title},`
+}
+
+export function formatQueryParams(answers) {
   const answerNumbers = Object.keys(answers)
 
   return answerNumbers.reduce((previousParams, answerNumber, index) => {
@@ -62,13 +80,16 @@ function formatFetchParams(answers) {
   }, '')
 }
 
+
 function Results() {
   const { theme } = useTheme()
   const { answers } = useContext(SurveyContext)
-  const fetchParams = formatFetchParams(answers)
+  // const fetchParams = formatFetchParams(answers)
+  const queryParams = formatQueryParams(answers)
 
   const { data, isLoading, error } = useFetch(
-    `http://localhost:8000/results?${fetchParams}`
+    // `http://localhost:8000/results?${fetchParams}`
+    `http://localhost:8000/results?${queryParams}`
   )
 
   if (error) {
@@ -91,8 +112,10 @@ function Results() {
               key={`result-title-${index}-${result.title}`}
               theme={theme}
             >
-              {result.title}
-              {index === resultsData.length - 1 ? '' : ','}
+               {/* tester notre code de manière indépendante */}
+              {formatJobList(result.title, resultsData.length, index)}
+              {/* {result.title}
+              {index === resultsData.length - 1 ? '' : ','} */}
             </JobTitle>
           ))}
       </ResultsTitle>
