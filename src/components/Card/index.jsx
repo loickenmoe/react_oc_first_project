@@ -74,6 +74,4 @@ const CardWrapper = styled.div`
     }
 `
 
-
-
 export default Card
