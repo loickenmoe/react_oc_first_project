@@ -3,6 +3,8 @@ import colors from '../../utils/style/colors'
 import { StyledLink } from '../../utils/style/atom'
 import { useTheme } from '../../utils/hooks'
 import HomeIllustration from '../../components/assets/home-illustration.svg'
+import { useState } from 'react'
+import MyComponent from './MyComponent'
 
 const HomeWrapper = styled.div`
   display: flex;
@@ -39,21 +41,19 @@ const StyledTitle = styled.h2`
 const Illustration = styled.img`
   flex: 1;
 `
-// our first test
-export function sum(a, b) {
-  return a + b
-}
-
 
 function Home() {
   const { theme } = useTheme()
+  const [display, setDisplay] = useState(true)
 
   return (
     <HomeWrapper>
       <HomerContainer theme={theme} >
-       {/* our first test */}
-      {sum(40, 2)}
         <LeftCol>
+          {display && <MyComponent />}
+          <button onClick={() => setDisplay(!display)}>
+            {display ? 'Cacher' : 'Afficher'} mon composant
+          </button>
           <StyledTitle theme={theme}>
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
             talents

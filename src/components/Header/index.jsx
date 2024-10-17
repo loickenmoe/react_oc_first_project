@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
-import styled from "styled-components"  //importation du style
-import colors from "../../utils/style/colors"
-import DarkLogo from "../assets/dark-logo.png"
-
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { StyledLink } from '../../utils/style/atom'
+import LightLogo from '../../assets/light-logo.png'
+import DarkLogo from '../../assets/dark-logo.png'
+import { useTheme } from '../../utils/hooks'
 
 const HomeLogo = styled.img`
   height: 70px;
@@ -15,35 +16,27 @@ const NavContainer = styled.nav`
   align-items: center;
 `
 
-// styliser un élément qui vient d'une bibliothèque: creation du composants stylisé
-const StyleLink = styled(Link)`
-    padding: 15px;
-    color: #8186a0;
-    text-decoration: none;
-    font-size: 18px;
-    &:focus{
-      color: white; 
-      border-radius: 30px; 
-      background-color: ${colors.primary};
-    
-    }
-      ${(props) =>
-        props.$isFullLink &&
-        `color: white; border-radius: 30px; background-color: ${colors.primary};`}
-`
- 
 function Header() {
-    return (
-        <NavContainer>
-            <Link to="/"><HomeLogo src={DarkLogo} /></Link>
-            {/* remplacement des simples balises Link par les balises portant le nom de notre composant  */}
-            <div>
-                <StyleLink to="/">Accueil</StyleLink>
-                <StyleLink to="/freelances">Profile</StyleLink>
-                <StyleLink to="/survey/1">Faire le test</StyleLink>
-            </div>
-        </NavContainer>
-    )
+  const { theme } = useTheme()
+
+  return (
+    <NavContainer>
+      <Link to="/">
+        <HomeLogo src={theme === 'light' ? DarkLogo : LightLogo} />
+      </Link>
+      <div>
+        <StyledLink $theme={theme} to="/">
+          Accueil
+        </StyledLink>
+        <StyledLink $theme={theme} to="/freelances">
+          Profils
+        </StyledLink>
+        <StyledLink to="/survey/1" $isFullLink>
+          Faire le test
+        </StyledLink>
+      </div>
+    </NavContainer>
+  )
 }
 
 export default Header

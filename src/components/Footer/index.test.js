@@ -1,9 +1,17 @@
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from '../../utils/context'
 import Footer from './Footer'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 describe('Footer', () => {
-  test('Change theme', async () => {
+  it('Should render without crashing', async () => {
+    render(
+      <ThemeProvider>
+        <Footer />
+      </ThemeProvider>
+    )
+  })
+
+  it('Should change theme', async () => {
     render(
       <ThemeProvider>
         <Footer />
