@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { Loader } from '../../utils/style/atom'
 import { useFetch, useTheme } from '../../utils/hooks'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const CardsContainer = styled.div`
   display: grid;

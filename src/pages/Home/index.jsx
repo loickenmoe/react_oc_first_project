@@ -48,7 +48,7 @@ function Home() {
 
   return (
     <HomeWrapper>
-      <HomerContainer theme={theme} >
+      <HomerContainer theme={theme}>
         <LeftCol>
           {display && <MyComponent />}
           <button onClick={() => setDisplay(!display)}>

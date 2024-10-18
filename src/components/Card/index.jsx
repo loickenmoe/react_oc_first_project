@@ -2,9 +2,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components' //importation de styled-components
 import colors from '../../utils/style/colors'
 import { Component } from 'react'
-// import { useState } from 'react'
-// import { useTheme } from '../../utils/hooks'
-// import DefaultPicture from '../../assets/profile.png'
 
 // creation du composant CardLabel et CardImage avec styled
 const CardLabel = styled.span`

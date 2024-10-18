@@ -1,14 +1,13 @@
-import styled from "styled-components"
-import colors from "../../utils/style/colors"
+import styled from 'styled-components'
+import colors from '../../utils/style/colors'
 import { useTheme } from '../../utils/hooks'
 import ErrorIllustration from '../../assets/404.svg'
-
 
 const ErrorWrapper = styled.div`
   margin: 30px;
   display: flex;
   flex-direction: column;
-   background-color: ${({ theme }) =>
+  background-color: ${({ theme }) =>
     theme === 'light' ? colors.backgroundLight : colors.backgroundDark};
   align-items: center;
 `
@@ -26,8 +25,6 @@ const Illustration = styled.img`
   max-width: 800px;
 `
 
-
-
 function Error() {
   const { theme } = useTheme()
 
@@ -42,5 +39,4 @@ function Error() {
   )
 }
 
- 
 export default Error

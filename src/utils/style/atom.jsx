@@ -35,4 +35,3 @@ export const StyledLink = styled(Link)`
     background-color: ${colors.primary};
   `}
 `
-

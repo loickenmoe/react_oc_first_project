@@ -3,8 +3,6 @@ import colors from '../../utils/style/colors'
 import { useTheme } from '../../utils/hooks'
 import EmailInput from '../EmailInput'
 
-
-
 const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
@@ -23,7 +21,7 @@ const NightModeButton = styled.button`
 
 function Footer() {
   const { theme, toggleTheme } = useTheme()
-  
+
   return (
     <FooterContainer>
       <EmailInput theme={theme} />
