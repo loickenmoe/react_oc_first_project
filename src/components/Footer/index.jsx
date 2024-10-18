@@ -10,7 +10,7 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 60px 0;
+  padding: 60px 0;
 `
 
 const NightModeButton = styled.button`
@@ -22,7 +22,8 @@ const NightModeButton = styled.button`
 `
 
 function Footer() {
-  const { toggleTheme, theme } = useTheme()
+  const { theme, toggleTheme } = useTheme()
+  
   return (
     <FooterContainer>
       <EmailInput theme={theme} />

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import colors from '../../utils/style/colors'
 import { StyledLink } from '../../utils/style/atom'
 import { useTheme } from '../../utils/hooks'
-import HomeIllustration from '../../components/assets/home-illustration.svg'
+import HomeIllustration from '../../assets/home-illustration.svg'
 import { useState } from 'react'
 import MyComponent from './MyComponent'
 

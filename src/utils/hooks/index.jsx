@@ -36,6 +36,6 @@ export function useFetch(url) {
 }
 
 export function useTheme() {
-  const { theme, setTheme } = useContext(ThemeContext)
-  return { theme, setTheme }
+  const { theme, toggleTheme } = useContext(ThemeContext)
+  return { theme, toggleTheme }
 }
